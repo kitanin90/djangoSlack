@@ -1,0 +1,4 @@
+django~=2.2
+djangorestframework==3.10.3
+slackclient>=1.0.5
+slackeventsapi>=0.1
