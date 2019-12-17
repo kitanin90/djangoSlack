@@ -27,8 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# APPEND_SLASH = False
+APPEND_SLASH = False
 
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,0 +1,18 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Создание сообщения</title>
+</head>
+
+<body>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Введите заголовок: <input type="text" name="title"></p>
+    <p>Введите текс: <input type="text" name="body"></p>
+    <p>Введите url изображения: <input type="text" name="url_image"></p>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+</body>
+
+</html>
