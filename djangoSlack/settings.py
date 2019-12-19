@@ -29,9 +29,8 @@ ALLOWED_HOSTS = ['*']
 
 APPEND_SLASH = False
 
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_HTTPONLY = True
-# Application definition
+# CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_HTTPONLY = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -105,12 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -118,16 +115,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
-
-SLACK_SIGNING_SECRET = '0bc34fe81f8ca5c9966de4d08ff98ee1'
-SLACK_BOT_TOKEN = 'xoxb-872482111127-870185133588-PFlbAwdIkEAZnAmsuqRXTeld'  #bot user token
-
-SLACK_VERIFICATION_TOKEN = 'REy1PRjL3Qlq8Ashu3KiOmJ0'    #verification token
-SLACK_CLIENT_ID = '872482111127.872833432390'  #client id
-SLACK_CLIENT_SECRET = '2741e422d270cce1e54f9339fdcbb58b'   #client secret
+SLACK_SIGNING_SECRET = os.getenv('SLACK_SIGNING_SECRET')
+SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
