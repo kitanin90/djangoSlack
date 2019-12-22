@@ -24,4 +24,3 @@ urlpatterns = [
     path('slack/events', EventsAPIView.as_view()),
     path('slack/endpoint', EndpointAPIView.as_view()),
 ]
-

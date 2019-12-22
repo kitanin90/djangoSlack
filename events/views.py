@@ -24,7 +24,6 @@ class EventsAPIView(APIView):
         return Response({'posts': serializer.data})
 
     def post(self, request, *args, **kwargs):
-
         slack_message = request.data
 
         if slack_message.get('token') != slack_verification_token:
@@ -37,7 +36,6 @@ class EventsAPIView(APIView):
         if 'event' in slack_message:
             event_message = slack_message.get('event')
 
-            # ignore bot's own message
             if event_message.get('subtype') == 'bot_message':
                 return Response(status=status.HTTP_200_OK)
 
@@ -45,8 +43,6 @@ class EventsAPIView(APIView):
             text = event_message.get('text')
             channel = event_message.get('channel')
             bot_text = 'Hi <@{}> :wave:'.format(user)
-
-            print(text)
 
             if 'hi' in text.lower():
                 slack_client.api_call(method='chat.postMessage',
