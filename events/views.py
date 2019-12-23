@@ -9,8 +9,8 @@ from rest_framework import status
 from .models import Post
 from .serializers import PostSerializer
 
-SLACK_SIGNING_SECRET = getattr(settings, 'SLACK_SIGNING_SECRET', None)
 
+SLACK_SIGNING_SECRET = getattr(settings, 'SLACK_SIGNING_SECRET', None)
 slack_bot_token = getattr(settings, 'SLACK_BOT_TOKEN', None)
 slack_client = SlackClient(slack_bot_token)
 slack_verification_token = getattr(settings, 'SLACK_VERIFICATION_TOKEN', None)
