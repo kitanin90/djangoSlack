@@ -20,7 +20,7 @@ from django.urls import path, include
 from events.views import EventsAPIView, EndpointAPIView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('slack/events', EventsAPIView.as_view()),
     path('slack/endpoint', EndpointAPIView.as_view()),
 ]
