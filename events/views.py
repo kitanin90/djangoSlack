@@ -38,7 +38,6 @@ class EventsAPIView(APIView):
 
             if event_message.get('subtype') == 'bot_message':
                 return Response(status=status.HTTP_200_OK)
-
             user = event_message.get('user')
             text = event_message.get('text')
             channel = event_message.get('channel')

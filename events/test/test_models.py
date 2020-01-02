@@ -6,14 +6,14 @@ class PostTestCase(TestCase):
 
     def setUp(self):
         Post.objects.create(
-            title='Первый заголовок', body='Первое описание', url_image='Ссылка')
+            title='First title', body='First description', url_image='First URL')
         Post.objects.create(
-            title='Второй заголовок', body='Второе описание', url_image='Вторая Ссылка')
+            title='Second title', body='Second description', url_image='Second URL')
 
     def test_post(self):
-        first_post = Post.objects.get(title='Первый заголовок')
-        second_post = Post.objects.get(title='Второй заголовок')
+        first_post = Post.objects.get(title='First title')
+        second_post = Post.objects.get(title='Second title')
         self.assertEqual(
-            first_post.get_title(), 'Заголовок: Первый заголовок')
+            first_post.get_title(), 'Title: First title')
         self.assertEqual(
-            second_post.get_title(), 'Заголовок: Второй заголовок')
+            second_post.get_title(), 'Title: Second title')
