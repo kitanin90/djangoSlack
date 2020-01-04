@@ -2,8 +2,6 @@
 
 Django app with Slack API
 
-
-
 ## Installation
 Enter code in terminal
 ```python
@@ -36,3 +34,16 @@ export $ (grep -v '^ #' .env | xargs -0)
 2. To receive a response from the chat, write "Hello"
 
 
+## Troubeshooting
+
+1. If you see error on api.slack.com
+
+![Alt text](img_github/apislack.jpg?raw=true "Title")
+
+You need to export the values ​​of the variables in the terminal:
+
+`
+export $ (grep -v '^ #' .env | xargs -0)
+`
+ 
+and restart server
