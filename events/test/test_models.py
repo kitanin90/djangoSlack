@@ -23,7 +23,7 @@ class PostTestCase(TestCase):
         field_label = post._meta.get_field('title').verbose_name
         self.assertEquals(field_label, 'title')
 
-    def test_title_max_lenght(self):
+    def test_title_max_length(self):
         post = Post.objects.get(id=1)
         max_length = post._meta.get_field('title').max_length
         self.assertEquals(max_length, 100)

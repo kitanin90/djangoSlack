@@ -42,22 +42,11 @@ class EventsAPIView(APIView):
             text = event_message.get('text')
             channel = event_message.get('channel')
             bot_text = 'Hi <@{}> :wave:'.format(user)
-            print(bot_text)
 
             if 'hi' in text.lower():
                 slack_client.api_call(method='chat.postMessage',
                                       channel='CR9LJQM7D',
                                       text=bot_text)
-
-                return Response(status=status.HTTP_200_OK)
-
-            if 'send message' in text.lower():
-                print(text)
-                get_message = text.split()
-                print(get_message)
-                slack_client.api_call(method='chat.postMessage',
-                                      channel=channel,
-                                      text='Good')
 
                 return Response(status=status.HTTP_200_OK)
 
