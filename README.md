@@ -36,7 +36,8 @@ export $ (grep -v '^ #' .env | xargs -0)
 
 ## Troubeshooting
 
-1. If you see error on api.slack.com
+#### I. Error URL
+If you see error on api.slack.com
 
 ![Alt text](img_github/apislack.jpg?raw=true "Title")
 
@@ -47,3 +48,6 @@ export $ (grep -v '^ #' .env | xargs -0)
 `
  
 and restart server
+
+#### II. No sends message in response
+If you receive messages from the chat and the response is “200”, but cannot send the response to the chat, check the .env value (SLACK_BOT_TOKEN)

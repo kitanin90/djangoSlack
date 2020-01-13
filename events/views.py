@@ -45,7 +45,7 @@ class EventsAPIView(APIView):
 
             if 'hi' in text.lower():
                 slack_client.api_call(method='chat.postMessage',
-                                      channel=channel,
+                                      channel='CR9LJQM7D',
                                       text=bot_text)
 
                 return Response(status=status.HTTP_200_OK)
