@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from .models import Post
+from .models import Post, Profile
 from .serializers import PostSerializer
 
 
@@ -76,6 +76,17 @@ class EndpointAPIView(TemplateView):
         title = request.POST.get('title')
         body = request.POST.get('body')
         url_image = request.POST.get('url_image')
+        fullname = request.POST.get('fullname')
+
+        if not Profile.objects.filter(fullname=fullname):
+            user = Profile()
+            user.fullname = fullname
+            user.number_message = 1
+            user.save()
+        else:
+            user_parametr = Profile.objects.get(fullname=fullname)
+            user_parametr.number_message += 1
+            user_parametr.save()
 
         Post.objects.create(title=title,
                             body=body,
@@ -113,7 +124,7 @@ class EndpointAPIView(TemplateView):
                         "elements": [
                             {
                                 "type": "mrkdwn",
-                                "text": "Author: V.O. Kitanin"
+                                "text": "Author: {0}".format(fullname)
                             }
                         ]
                     }
