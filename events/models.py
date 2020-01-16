@@ -7,7 +7,7 @@ class Post(models.Model):
     body = models.TextField()
     url_image = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
-    fullname = models.ForeignKey('Profile', null=True, on_delete=models.PROTECT,
+    fullname = models.ForeignKey('User', null=True, on_delete=models.PROTECT,
                                  verbose_name='Profile')
 
     def __str__(self):
@@ -20,13 +20,14 @@ class Post(models.Model):
         ordering = ["-created_date"]
 
 
-class Profile(models.Model):
-    fullname = models.CharField(max_length=100, verbose_name='Profile')
+class User(models.Model):
+    fullname = models.CharField(max_length=100, verbose_name='User')
     number_message = models.IntegerField(default=0)
+    email = models.CharField(max_length=100)
 
     class Meta:
-        verbose_name_plural = 'Profiles'
-        verbose_name = 'Profile'
+        verbose_name_plural = 'Users'
+        verbose_name = 'User'
         ordering = ['fullname']
 
     def __str__(self):

@@ -23,7 +23,9 @@ text. Exception "https://12a3d5g5f1.ngrok.io/slack/events"
 ```
 export $ (grep -v '^ #' .env | xargs -0)
 ```
-4. Start the server
+
+4. Write value *EMAIL_HOST_USER* , *EMAIL_HOST_PASSWORD* for feature send message in mail
+5. Start the server
 
 ## Usage
 #### Send message in chat
