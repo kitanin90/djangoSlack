@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Profile
+from .models import Post, User
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -9,8 +9,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('fullname', 'number_message')
+    list_display = ('fullname', 'number_message', 'email')
 
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Profile, UserAdmin)
+admin.site.register(User, UserAdmin)

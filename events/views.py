@@ -5,8 +5,10 @@ from slackclient import SlackClient
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from .tasks import send_email
 
-from .models import Post, Profile
+
+from .models import Post, User
 from .serializers import PostSerializer
 
 
@@ -77,20 +79,24 @@ class EndpointAPIView(TemplateView):
         body = request.POST.get('body')
         url_image = request.POST.get('url_image')
         fullname = request.POST.get('fullname')
+        email = request.POST.get('email')
 
-        if not Profile.objects.filter(fullname=fullname):
-            user = Profile()
+        if not User.objects.filter(fullname=fullname):
+            user = User()
             user.fullname = fullname
+            user.email = email
             user.number_message = 1
             user.save()
         else:
-            user_parametr = Profile.objects.get(fullname=fullname)
+            user_parametr = User.objects.get(fullname=fullname)
             user_parametr.number_message += 1
             user_parametr.save()
 
         Post.objects.create(title=title,
                             body=body,
                             url_image=url_image)
+
+        send_email.delay(email, title, body)
 
         send_block = [
             {

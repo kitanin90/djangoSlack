@@ -1,3 +1,4 @@
+celery
 aiohttp==3.6.2
 asgiref==3.2.3
 async-timeout==3.0.1
